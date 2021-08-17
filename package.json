@@ -1,0 +1,19 @@
+{
+  "name": "bench-resttest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jenahn898/bench-resttest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jenahn898/bench-resttest/issues"
+  },
+  "homepage": "https://github.com/jenahn898/bench-resttest#readme"
+}
