@@ -8,7 +8,21 @@ const App = () => {
                 <h1 id="main-title">Bench Test</h1>
             </div>
             <div className="main">
-                Stuff here
+                <div id="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Company</th>
+                                <th>Account</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            Stuff goes here
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     );
