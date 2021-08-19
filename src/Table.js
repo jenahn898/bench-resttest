@@ -11,28 +11,42 @@ function Table() {
     const [transactions, setTransactions] = useState([]);
     
     useEffect(() => {
-        var urls = [ 
-            `https://resttest.bench.co/transactions/1.json`, 
-            `https://resttest.bench.co/transactions/2.json`,
-            `https://resttest.bench.co/transactions/3.json`,
-            `https://resttest.bench.co/transactions/4.json`,
-            ];
-        var promises = urls.map(url => fetch(url).then(res => res.json()));
-            Promise.all(promises)
-            .then(results => {
-                setIsLoaded(true);
-                var dataArray = [];
-                for (let result of results) {
-                    dataArray = dataArray.concat(result.transactions);
-                }
-                setTransactions(dataArray);
+        let urls = [];
 
+        fetch(`https://resttest.bench.co/transactions/1.json`)
+        .then(firstPage => firstPage.json())
+        .then(
+            (firstPage) => {
+                const totalTransactions = firstPage.totalCount;
+                const transactionsInPage = firstPage.transactions.length
+                
+                let numPagesToGo = Math.ceil(totalTransactions / transactionsInPage);
+
+                let containTransactions = [];
+                containTransactions = containTransactions.concat(firstPage.transactions);
+
+                for (let i = 2; i <= numPagesToGo; i++) {
+                    urls.push(`https://resttest.bench.co/transactions/${i}.json`);
+                }
+
+                const pagesToFetch = urls.map(url => fetch(url).then(page => page.json()));
+                Promise.all(pagesToFetch)
+                .then(results => {
+                            setIsLoaded(true);
+                            for (let result of results) {
+                                containTransactions = containTransactions.concat(result.transactions);
+                            }
+                            setTransactions(containTransactions);
+                        });
             },
             (error) => {
                 setIsLoaded(true);
                 setError(error);
-            }); 
-    }, [])
+            }
+        ) 
+    }, []);
+
+      
 
     if(error) {
         return <div>Error</div>;
