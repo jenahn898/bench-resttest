@@ -1,8 +1,5 @@
 body {
     font-family: 'Open Sans', sans-serif;
-}
-
-#content-container {
     background-color: #EFEDE8;
 }
 
@@ -29,6 +26,7 @@ body {
     width: 100%;
     background-color: #FFFFFF;
     box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    letter-spacing: 0.5px;
 }
 
 thead {
@@ -66,13 +64,17 @@ th, td {
 }
 
 tbody tr:nth-child(odd) {
-    color: #B6B6B7;
+    color: #8c8c8c;
+}
+
+tbody tr:nth-child(odd) .cell-company, tbody tr:nth-child(odd) .cell-amount {
+    color: #000000;
 }
 
 tbody tr:nth-child(even) {
     color: #20A7AA;
 }
 
-.cell-company {
+.cell-company, .cell-amount {
     font-weight: 600;
 }

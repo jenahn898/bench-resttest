@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/jenahn898/bench-resttest#readme",
   "dependencies": {
+    "moment": "^2.29.1",
     "nanoid": "^3.1.25",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"

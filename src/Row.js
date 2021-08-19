@@ -11,7 +11,7 @@ const Row = ({
             <td>{date}</td>
             <td className="cell-company">{company}</td>
             <td>{ledger}</td>
-            <td>{amount}</td>
+            <td className="cell-amount">{amount}</td>
         </tr>
     )
 }

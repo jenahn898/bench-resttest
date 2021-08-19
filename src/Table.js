@@ -2,7 +2,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Row from "./Row";
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
+const moment = require('moment');
 
 function Table() {
     const [error, setError] = useState(null);
@@ -10,7 +11,7 @@ function Table() {
     const [transactions, setTransactions] = useState([]);
     
     useEffect(() => {
-        var urls = [
+        var urls = [ 
             `https://resttest.bench.co/transactions/1.json`, 
             `https://resttest.bench.co/transactions/2.json`,
             `https://resttest.bench.co/transactions/3.json`,
@@ -44,6 +45,7 @@ function Table() {
                                 .reduce((total, amount) => total + amount)
                                 .toFixed(2);
 
+
             return (
                 <table>
                     <thead>
@@ -61,10 +63,10 @@ function Table() {
                             transactions.map((transaction) => (
                                 <Row 
                                     key={nanoid()}
-                                    date = {transaction.Date}
+                                    date = {moment(transaction.Date).format('MMM Do, YYYY')}
                                     company = {transaction.Company}
                                     ledger = {transaction.Ledger}
-                                    amount = {transaction.Amount}
+                                    amount = {transaction.Amount > 0 ? `\$${transaction.Amount}` : `- \$${Math.abs(transaction.Amount)}`}
                                 />
                             ))
                         )}
