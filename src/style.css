@@ -13,9 +13,66 @@ body {
 }
 
 #header-bar h1 {
-    color: #fff;
+    color: #FFFFFF;
     font-size: 20px;
     font-weight: 300;
     padding: 30px 0;
 }
 
+#table-container {
+    margin: 30px;
+}
+
+#table-container table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+thead {
+    color: #20A7AA;
+    font-size: 16px;
+}
+
+.col-date {
+    width: 10%;
+}
+
+.col-company {
+    width: 40%;
+}
+
+.col-account {
+    width: 40%;
+}
+
+.col-amount {
+    width: 10%;
+}
+
+tbody {
+    font-size: 15px;
+}
+
+tr {
+    border-bottom: 1px solid #D8D7D3;
+}
+
+th, td {
+    text-align: left;
+    padding: 20px;
+}
+
+tbody tr:nth-child(odd) {
+    color: #B6B6B7;
+}
+
+tbody tr:nth-child(even) {
+    color: #20A7AA;
+}
+
+.cell-company {
+    font-weight: 600;
+}

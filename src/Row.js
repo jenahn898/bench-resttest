@@ -9,7 +9,7 @@ const Row = ({
     return (
         <tr>
             <td>{date}</td>
-            <td>{company}</td>
+            <td className="cell-company">{company}</td>
             <td>{ledger}</td>
             <td>{amount}</td>
         </tr>

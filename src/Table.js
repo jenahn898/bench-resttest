@@ -48,10 +48,10 @@ function Table() {
                 <table>
                     <thead>
                         <tr>
-                            <td>Date</td>
-                            <td>Company</td>
-                            <td>Account</td>
-                            <td>{"$" + totalAmount}</td>
+                            <th className="col-date">Date</th>
+                            <th className="col-company">Company</th>
+                            <th className="col-account">Account</th>
+                            <th className="col-amount">{"$" + totalAmount}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,6 +80,3 @@ function Table() {
 }
 
 export default Table;
-
-
-
