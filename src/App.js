@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom";
-import Entry from './Entry';
+import Table from './Table';
 
 const App = () => {
     return (
@@ -10,7 +10,7 @@ const App = () => {
             </div>
             <div className="main">
                 <div id="table-container">
-                        <Entry />
+                        <Table />
                 </div>
             </div>
         </div>

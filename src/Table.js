@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Row from "./Row";
 import { nanoid } from 'nanoid'
 
-function Entry() {
+function Table() {
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [transactions, setTransactions] = useState([]);
@@ -38,14 +38,20 @@ function Entry() {
     } else if (!isLoaded) {
         return <div>Loading...</div>;
     } else {
-        return(
+        if (transactions.length > 0) {
+
+            let totalAmount = transactions.map((transaction) => Number(transaction.Amount))
+                                .reduce((total, amount) => total + amount)
+                                .toFixed(2);
+
+            return (
                 <table>
                     <thead>
                         <tr>
                             <td>Date</td>
                             <td>Company</td>
                             <td>Account</td>
-                            <td>Total</td>
+                            <td>{"$" + totalAmount}</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -62,15 +68,18 @@ function Entry() {
                                 />
                             ))
                         )}
-                        
                     </tbody>
                 </table>
             );
-  
+        }
+        return (
+            <div>No data found</div>
+        );
+        
     }
 }
 
-export default Entry;
+export default Table;
 
 
 
